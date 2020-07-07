@@ -16,11 +16,13 @@ After the course, you’ll be ready to communicate with a GraphQL API regardless
 
 ## Send a Query with GraphQL Playground
 
+_*"**Description**: The GraphQL Playground is an IDE for interacting with a GraphQL API. GraphQL APIs have a single endpoint. Queries are used to request specific data from that endpoint. In this lesson, we will send a query to obtain the total number of pets registered at the Pet Library."*_
+
 Instructor: [00:00] To get started sending GraphQL queries, we'll go to `https://pet-library.moonhighway.com`. When we go to this route, a tool called GraphQL Playground will pop up in the browser.
 
-[00:12] GraphQL Playground is an in-browser IDE that lets you send queries to GraphQL endpoints. The endpoint for the pet library is here in the center of the screen. With GraphQL, there's only one endpoint, so I need to specify what data I want by writing a query.
+[00:12] **GraphQL Playground** is an in-browser IDE that lets you send queries to GraphQL endpoints. The endpoint for the pet library is here in the center of the screen. **With GraphQL, there's only one endpoint**, so I need to specify what data I want by writing a query.
 
-[00:27] I'll write the query on the left-hand side of the screen starting with the `query` keyword. I am going to ask for `totalPets`. How many pets are at the pet library?
+[00:27] _I'll write the query on the left-hand side of the screen starting with the `query` keyword._ I am going to ask for `totalPets`. How many pets are at the pet library?
 
 ```graphql
 query {
@@ -28,7 +30,7 @@ query {
 }
 ```
 
-[00:35] When I click play, the data I requested will be returned to me as JSON. Notice that the shape of the query matches the shape of the response exactly. All of the fields are the same.
+[00:35] When I click play, the data I requested will be returned to me as **JSON**. _Notice that the shape of the query matches the shape of the response exactly. All of the fields are the same._
 
 ## Output
 
@@ -40,10 +42,11 @@ query {
 }
 ```
 
-[00:46] We've sent our first query using GraphQL Playground. On the left, I wrote a `query` to describe what data I want to get from the pet library API. Then I click play which sends an http request, the post request to our GraphQL endpoint. I get the data back as JSON.
+[00:46] We've sent our first query using GraphQL Playground. On the left, I wrote a `query` to describe what data I want to get from the pet library API. Then I click play which sends an **http request**, the post request to our GraphQL endpoint. I get the data back as **JSON.**
 
 
 ## Query a List of Objects with GraphQL
+_**Description:** Now that we understand how to write a simple query to check a total value, we're going to write a query to return a list of pet objects. Along the way, we'll learn a bit more about the GraphQL query language, tackling vocabulary like selection sets and fields. All of the queries are sent to the Pet Library API._
 
 Instructor: [00:00] Let's add onto our query a bit and request some data about the pets that are available at the pet library. If I wanted a list of all of our pets, I'm going to query the `allPets` field. I'll open up our curly braces to select `name` and `weight` for each of these pets, and then I'll click play.
 
@@ -80,16 +83,17 @@ query {
 
  Also, if I collapse the `allPets` field, we'll see that `totalPets` is also being sent in the query, and we get that data as well.
 
-[00:31] If we take a closer look at the query, everything wrapped with curly braces is called a selection set. Each piece of data that we're requesting is called a field. I can also add comments to the query by using the pound sign or hashtag.
+[00:31] If we take a closer look at the query, _everything wrapped with curly braces is called a **selection set**._ _Each piece of data that we're requesting is called a **field**._ I can also add comments to the query by using the pound sign or hashtag `# Adding a comment to the allPets query`
 
 [00:45] Then if I were to use this on one of the fields, we'll see that name is now removed from the query and is not returned.
 
 
 ## Query an Enumeration Type with GraphQL
+_**Description:** In the GraphQL Query Language, an enum or enumeration type is a restricted list of values for a particular field. We'll query an enum field, category, in this lesson to find out the different pet categories. This lesson also takes a look at the GraphQL schema for the API._
 
 Instructor: [00:00] We've sent the `allPets` query, so we have some information about the pet, their name and their weight. Now, I know that Biscuit and Jungle are cats, because I know that cats, but I might not have all of them memorized.
 
-[00:11] We want to be able to find out what category the pet belongs to. When we're using GraphQL Playground, we can hit control-space. This will surface all of the different fields that are available on this query.
+[00:11] We want to be able to find out what category the pet belongs to. When we're using GraphQL Playground, we can hit **control-space**. This will surface all of the different fields that are available on this query.
 
 [00:23] Let's go ahead and add `category` to our query. When I click play, we should see `category` being returned.
 
@@ -104,21 +108,22 @@ query {
 }
 ```
 
- Now, `categories` look like strings, but they all seem pretty similar. `CAT`, `DOG`, `STINGRAY`, and `RABBIT`. GraphQL is a query language for your API, but it's also a type system for your API.
+ Now, `categories` look like strings, but they all seem pretty similar. `CAT`, `DOG`, `STINGRAY`, and `RABBIT`. **GraphQL is a query language for your API, but it's also a type system for your API.**
 
-[00:43] The GraphQL spec describes a schema definition language, which we'll use to define all of the different queries and all of the different types that are available on this API. If you click the schema tab, you can take a look at this schema.
+[00:43] The **GraphQL spec** describes a **schema definition language**, which we'll use to define all of the different queries and all of the different types that are available on this API. If you click the schema tab, you can take a look at this schema.
 
 ` See 0:55 in lesson `
 ![Schema tab shown on the side of the playground](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555708/transcript-images/query-an-enumeration-type-with-graphql-schema-tab.png)
 
-[00:56] `allPets` returns a list of pets, and I can access all of the different fields on this pet type by scrolling down. Here, it says that category returns an option called `petCategory`. `petCategory` is an enumeration type that represents a restricted list of options for this field. Cat, dog, rabbit, and stingray.
+[00:56] `allPets` returns a list of pets, and I can access all of the different fields on this pet type by scrolling down. Here, it says that category returns an option called `petCategory`. `petCategory` is an **enumeration type** that represents a **restricted list of options** for this field. Cat, dog, rabbit, and stingray.
 
-[01:18] Here's another tip you can use when exploring APIs with GraphQL Playground. You can hover over one of these field names and press command. This will allow you to click on that field, and it'll take you directly to that field definition in the schema.
+[01:18] Here's another tip you can use when exploring APIs with GraphQL Playground. You can **hover** over one of these field names and **press command**. This will allow you to click on that field, and it'll take you directly to that field definition in the schema.
 
-[01:31] We can do that for weight, command-click, command-click for name, but we can also do it for `allPets` and for `totalPets`.
+[01:31] We can do that for `weight`, command-click, command-click for `name`, but we can also do it for `allPets` and for `totalPets`.
 
 
 ## Send a Nested GraphQL Query
+_**Description:** In addition to returning lists or scalar values, it’s possible to return GraphQL objects from fields. In this lesson, we’ll take a closer look at the Photo type and how it can be used to store more complex data types.._
 
 Instructor: [00:00] I'd like to adjust this query to include a photo. I want to return a photo for each of these pets. Let's see if there's anything in the schema that'll help us out with that.
 
@@ -140,7 +145,7 @@ query {
 
 ![Error message shown in the return panel produced from the query above](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555709/transcript-images/send-a-nested-graphql-query-error-message.png)
 
- Because `photo` is an object, I'm going to need to add another selection set here.
+ Because `photo` is an object, I'm going to need to add another **selection set** here.
 
 ```graphql
 query {
@@ -175,6 +180,7 @@ query {
 
 
 ## Filter a GraphQL Query Result Using Arguments
+_**Description:** Some GraphQL queries will have arguments. **Arguments** can be used to send additional options about the data set that you wish to receive. They may be used to specify sorting preferences, limit the number of records returned, or filter data. In this lesson, we will filter a list of pets by status._
 
 Instructor: [00:00] So far, we've gotten data about all of the pets in the library. We've gotten a list of our pets. We've gotten total pets. Total pets tells us that there are 25 pets that are part of our library, but I might want to filter this list to see just the pets that are available or just the pets that are checked out.
 
@@ -197,7 +203,7 @@ query {
 
 ![Available pets shown in return panel](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555709/transcript-images/filter-a-graphql-query-result-using-arguments-available-pets.png)
 
- If we change this to `CHECKEDOUT`, we'll see that the total checked out pets is five.
+ If we change this to `CHECKEDOUT`, we'll see that the total checked out pets is 5.
 
 ```graphql
 query {
@@ -219,10 +225,11 @@ query {
 
 ![totalPets query shown in the graphql docs on the right of the screen](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555708/transcript-images/filter-a-graphql-query-result-using-arguments-pets-query.png)
 
-The value that I need to send is for `PetStatus`. `PetStatus` is an enum, either available or checked out. Now as we saw before, `totalPets` will work without a filter, but if I do provide a `status` filter, this will filter the list based on the value that I provide for `PetStatus`.
+The value that I need to send is for `PetStatus`. `PetStatus` is an **enum**, either available or checked out. Now as we saw before, `totalPets` will work without a filter, but if I do provide a `status` filter, this will filter the list based on the value that I provide for `PetStatus`.
 
 
 ## Renaming Fields with GraphQL Aliases
+_**Description:** When writing GraphQL queries, you may want to query the same field with different arguments. In this lesson, we’ll show the problem with naming collisions in GraphQL queries and how they can be solved with aliases._
 
 Instructor: [00:00] Our query is telling us how many pets are checked out, but I also want to see how many pets are available. I'm going to add the `totalPets` query to line two, and I'll add the `status` `Available` as an argument.
 
@@ -246,11 +253,11 @@ query {
 
 ![Error message shown in return panel about different arguments for the same query](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555709/transcript-images/renaming-fields-with-graphql-aliases-error.png)
 
- It lets us know that fields `totalPets` conflict, because they but have differing arguments, and it recommends that we use different aliases on these fields.
+ It lets us know that fields `totalPets` conflict, because they but have differing arguments, and _it recommends that we use different **aliases** on these fields._
 
-[00:24] If I scroll down a little further, we're going to see where this is happening, line two, column three, and line three, column three. We also see this little faint hit of red, letting us know that there's some sort of a problem.
+[00:24] If I scroll down a little further, we're going to see where this is happening, line two, column three, and line three, column three. We also see this little faint hit of red (left side), letting us know that there's some sort of a problem.
 
-[00:36] We have a naming collision here. What we'll need to do is preface both of these queries with an alias. I can pick a new name for this field. I'll call it `available` and add a colon. Then I'll add `checkedOut` with a colon in front of that.
+[00:36] We have a **naming collision here**. What we'll need to do is preface both of these queries with an alias. I can pick a new name for this field. I'll call it `available` and add a colon. Then I'll add `checkedOut` with a colon in front of that.
 
 ```graphql
 query {
@@ -291,7 +298,7 @@ query {
 }
 ```
 
-[01:04] This will tell us that 25 total pets are part of the library, all bundled in the same query. Aliases can be added to any field, so I added them to top-level queries, like `totalPets`, before. If you wanted to add them to more nested fields, you could do so.
+[01:04] This will tell us that 25 total pets are part of the library, all bundled in the same query. **Aliases can be added to any field**, so I added them to top-level queries, like `totalPets`, before. If you wanted to add them to more nested fields, you could do so.
 
 [01:20] I could rename the photo field with an alias called `petPhoto`, and this is going to rename that in the response in all cases.
 
@@ -316,6 +323,7 @@ query {
 
 
 ## Use Variables to Filter a Query Result with GraphQL
+_**Description:** If you want to pass dynamic arguments to a GraphQL query, you can do so with GraphQL **query variables**. In this lesson, we’ll replace static or inline values with dynamic values and pass data as JSON to the query from the Query Variables panel._
 
 Instructor: [00:00] We'll start by opening up a new tab in GraphQL Playground by clicking the plus, and we're going to use this new tab to write a new `query`. We'll use our `allPets` query from before, but this time, we want to pass in some optional arguments.
 
@@ -348,11 +356,11 @@ query {
 }
 ```
 
- Right now, these values are being passed in-line as strings with the query, but we also have the option to provide values as dynamic values.
+ Right now, these values are being passed **in-line as strings** with the query, but we also have the option to provide values as **dynamic values**.
 
 ![allPets query with hard coded values passed in](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555709/transcript-images/use-variables-to-filter-a-query-result-with-graphql-all-pets-query.png)
 
-[00:44] Let's say you wanted to build a UI for this. You might have some dropdown filters. You'd need some sort of mechanism for passing back dynamic user input. To pass dynamic values with a GraphQL query, we're going to use variables.
+[00:44] Let's say you wanted to build a UI for this. You might have some dropdown filters. You'd need some sort of mechanism for passing back dynamic user input. To pass **dynamic values** with a GraphQL query, we're going to use **variables.**
 
 [00:59] The first thing I want to do is I want to set up these variables on line one. We're going to use the dollar sign and `category`, and then we'll define what type category is, which is `petCategory`. Then we'll provide `status`, which is `petStatus`.
 
@@ -384,7 +392,7 @@ query ($category: PetCategory $status: PetStatus){
 
 ![Variables set up in the query](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555709/transcript-images/use-variables-to-filter-a-query-result-with-graphql-variables-set-up.png)
 
-[01:28] Because those values are nullable, we can provide `null`, and this will just show me all of the pets. When I want to provide those values, I'm going to open up the query variables panel. Here, I'm going to pass the values as JSON.
+[01:28] Because those values are nullable, we can provide `null`, and this will just show me all of the pets. When I want to provide those values, I'm going to open up the **query variables panel**. Here, I'm going to **pass the values as JSON.**
 
 #### Query variables panel
 
@@ -399,7 +407,7 @@ query ($category: PetCategory $status: PetStatus){
 
 ![query variables panel is set with dog and available](https://res.cloudinary.com/dg3gyk0gu/image/upload/v1563555709/transcript-images/use-variables-to-filter-a-query-result-with-graphql-query-variables-panel.png)
 
- This will be dynamic, so I can change it to `cat`. This will show me all the available cats.
+ **This will be dynamic**, so I can change it to `cat`. This will show me all the available cats.
 
 ```graphql
 {
@@ -428,10 +436,12 @@ query ($category: PetCategory=STINGRAY $status: PetStatus){
 
 
 ## Query Connected Data with the GraphQL Query Language
+_**Description:** One of the most useful features of a GraphQL query is that **you can collect data about multiple types in one request.** In this video, we'll look at how to use nested fields to gather data about the Customer type and the Pet type._
+
 
 Instructor: [00:00] So far, we've sent queries for the pet type, and if we search the schema for pet, we should see all the available fields. Now, there's another main type that's part of this API, and that's called customer.
 
-[00:11] The real power of GraphQL starts to show up when we start to talk about connecting data points. Let's write some queries that connect the pet type with the customer type. The query that we'll send is `petById`.
+[00:11] **The real power of GraphQL starts to show up when we start to talk about connecting data points.** Let's write some queries that connect the pet type with the customer type. The query that we'll send is `petById`.
 
 [00:24] This is going to take in `id` as an argument. This is going to return Biscuit.
 
@@ -481,10 +491,11 @@ query {
 
 
 ## Create Operation Names for GraphQL Queries 
+_**Description:** If there are **multiple GraphQL queries** in the same query document, you need to **give the query an operation name**. In this lesson, we’ll show how to get around anonymous operation errors with operation names._
 
 Instructor: [00:00] Right now, on the left-hand side of our screen, we have a huge query. It's collecting a bunch of data about customers and then about pets. GraphQL will let us do this. We can grab information about multiple types in one query, but I want to break this down into two separate queries, one of which will be for pets. The other will be for customers.
 
-[00:21] As soon as I break this down into two separate queries, we're going to run into an issue. When I click play, there are two unnamed queries.
+[00:21] **As soon as I break this down into two separate queries, we're going to run into an issue. When I click play, there are two unnamed queries.**
 
 ```graphql
 query {
@@ -568,8 +579,10 @@ Now if I select the play button, we'll see the drop-down. We'll also see the ope
 
 
 ## Use an Input Type to Create an Account with a GraphQL Mutation 
+_**Description:** Mutations are another type of GraphQL operation that are similar to queries, but they are used when you need to change any data on the backend. In this lesson, we will send mutations to register new users._
 
-Instructor: [00:00] To change data with GraphQL, we use a mutation. These are named just like queries and the schema. Within the schema, we have a mutation called createAccount. Let's write that mutation.
+
+Instructor: [00:00] _To change data with GraphQL, we use a **mutation**._ These are named just like queries and the schema. Within the schema, we have a mutation called createAccount. Let's write that mutation.
 
 [00:10] We're going to use the `mutation` keyword. We're going to use the name of the mutation `createAccount`. It looks it takes in something called an input, which is `createAccount` input.
 
@@ -583,7 +596,7 @@ mutation {
 
 ![Create account is a wrapper](../images/use-an-input-type-to-create-an-account-with-a-graphql-mutation-create-account.png)
 
- Every time I create an account, I'm going to need to provide those things.
+**Every time I create an account, I'm going to need to provide those things.**
 
 [00:33] Now here's where the input comes in handy. Instead of sending all of these variables one at a time, I can wrap them in the input, and then I can send them as one thing.
 
@@ -619,6 +632,8 @@ mutation ($input: CreateAccountInput!) {
 
 
 ## Authenticate a User with a GraphQL Mutation
+_**Description:** Mutations give you the ability to invoke backend functions from the client. In this lesson, we will use a mutation to authenticate a user with their username and password. Authorized users will receive a token that can be used to identify the current user in future operations._
+
 
 Instructor: [00:00] Now that we have an account, we can log in. Let's look at our mutation's list. We should see that there is a logIn mutation. I'm going to go ahead and write that here in our query document. We'll use `logIn` with the capital I. We'll use our `username`, our `password`.
 
@@ -691,6 +706,7 @@ mutation LogIn {
 
 
 ## Send a checkOut Mutation with GraphQL as an Authorized User
+_**Description:** Once logged in, the user will be able to check out pets with a checkOut mutation. In this lesson, we’ll look at how to send a mutation based on current data._
 
 Instructor: [00:00] The next step I want to take is to actually check out a pet. The checkout mutation takes in an ID of a pet to check out. I need to look at the pets that are currently available and find a pet to check out.
 
@@ -740,6 +756,7 @@ query Me {
 
 
 ## Change Check In Status with a GraphQL Mutation
+_**Description:** Following up on the checkOut mutation from the previous video, we’ll take a closer look at how to check in a pet using a pet id. Then we’ll look at the allCustomers query and find out the history of pet checkouts for all customers._
 
 Instructor: [00:00] We had a lot of fun with the pet, but now it's time to check them back in. We have another named mutation in the schema called `CheckIn`, and this should going to take in the ID of the pet we want to check in.
 
@@ -806,6 +823,7 @@ query {
 
 
 ## Reuse GraphQL Selection Sets with Fragments
+_**Description:** Fragments are selection sets that can be used across multiple queries. They allow you to refactor redundant selection sets, and they are essential when querying unions or interface types. In this lesson, we will improve our query logic by creating a fragment for the activity selection set._
 
 Instructor: [00:00] Let's start by adding a query for `allPets`, and we want to filter this by `category`. We'll look for all the rabbits, and we'll also filter by `status` to find the `AVAILABLE` rabbits. Next, we want to select a few fields.
 
