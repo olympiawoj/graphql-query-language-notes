@@ -1147,6 +1147,7 @@ query {
 
 
 ## Listen for Data Changes in Real-time with a GraphQL Subscription
+_**Description:** A GraphQL API can push new data to the client with the Subscription Type. In this lesson, we’ll listen to checkIn and checkOut mutations in real time._
 
 Instructor: [00:00] At this point, we've requested data with queries, we've changed data with mutations. There's one more operation type, though, with GraphQL. That is a GraphQL subscription. Let's say we wanted to set up a real-time listener for anytime a pet is returned.
 
@@ -1176,7 +1177,7 @@ mutation {
 }
 ```
 
-[00:50] The next step is I want to add a subscription. Let's add a new tab. We're going to add our `subscription` here. These, as we saw, are named just like queries and mutations. This time, it's going to be called `petReturned`.
+[00:50] The nex
 
 #### GraphQL playground
 ```graphql
