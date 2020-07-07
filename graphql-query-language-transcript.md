@@ -6,7 +6,7 @@ Transcripts for [Eve Porcello](https://egghead.io/instructors/eve-porcello) cour
 
 ## Description
 
-GraphQL is gaining traction as one of the most popular ways to create an API. Regardless of which GraphQL implementation you pick, you’ll use the QL in GraphQL — the query language — to query data, change data with mutations, and listen for data changes with subscriptions.
+GraphQL is gaining traction as one of the most popular ways to create an API. Regardless of which GraphQL implementation you pick, **you’ll use the QL in GraphQL — the query language — to query data, change data with mutations, and listen for data changes with subscriptions.
 
 You need to know the Query Language regardless of the server-side implementation.  In this course, we will learn the GraphQL query language by sending an assortment of GraphQL operations to an existing API. 
 
@@ -954,10 +954,12 @@ fragment CustomerDetails on Customer {
 
 
 ## Explore Refactored GraphQL Queries
+_**Description:** In this lesson, we’ll look at a refactored Pet Library which includes a range of new queries that aim to **minimize argument usage and naming collisions that require aliases**. To follow along with these queries, go to the Pet Library GraphQL Playground.._
+
 
 Instructor: [00:00] The pet library just got some funding, some VC money, so we're going to open up our browser and head over to the new version of the app. We're going to go to `https://funded-pet-library.moonhighway.com`.
 
-[00:13] You'll notice our new endpoint here at the center of the screen. With a larger budget comes more engineers and some enhancements to our API, one of which is that we have some more specific queries that may be easier to track.
+[00:13] You'll notice our new endpoint here at the center of the screen. With a larger budget comes more engineers and some enhancements to our API, one of which is that **we have some more specific queries that may be easier to track.**
 
 [00:28] Let's write our `query` for `totalPets`.
 
@@ -992,7 +994,7 @@ query {
 
  Now, if we look at this in the schema, we'll see that this query will return a list of all of the customers who currently have pets checked out.
 
-[00:54] This refactor gives us access to the same data, but we don't have to use as many arguments, and we've moved a lot of the logic of filtering, sorting to the server instead of having to handle this in the playground.
+[00:54] _This refactor gives us access to the same data, but we don't have to use as many arguments, and we've moved a lot of the logic of filtering, sorting to the server instead of having to handle this in the playground._
 
 ```graphql
 query {
