@@ -1012,12 +1012,15 @@ query {
 
 
 ## Query GraphQL Interface Types in GraphQL Playground
+_**Description:** Interfaces are similar to Unions in that they provide a mechanism for dealing with different types of data. However, an interface is more suited for data types that include many of the same fields. In this lesson, we will query different types of pets.
+
+To follow along with these queries, go to the Pet Library GraphQL Playground._
 
 Instructor: [00:00] If we sum the `allPets` query for `id` and `name`, we are going to see ID and name returned to us, just as we expect, but in the funded pet library, these data relationships are designed pretty differently.
 
-[00:11] Let's open up the `AllPets` query in our schema and we'll see that the pet is no longer a type, but instead it's an interface.
+[00:11] Let's open up the `AllPets` query in our schema and we'll see that the pet is no longer a type, but instead it's an **interface**.
 
-[00:18] An interface is an abstract type that includes a set of fields. These fields must be used when creating new instances of that interface. We have an interface called `Pet`. This is the base class. It has certain fields on it.
+[00:18] An **interface** is an abstract type that includes a set of fields. These fields must be used when creating new instances of that interface. We have an interface called `Pet`. This is the base class. It has certain fields on it.
 
 [00:32] We have several different implementations of that interface. Remember, our numerator from before that had `Cat`, `Dog`, `Rabbit`, and `Stingray`, these are now implementations of this interface.
 
