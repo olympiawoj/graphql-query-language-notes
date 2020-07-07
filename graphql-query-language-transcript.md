@@ -1226,6 +1226,7 @@ mutation {
 
 
 ## Query a GraphQL API's Types With Introspection Queries
+_**Description:** Introspection is the ability to query information about a GraphQL API’s schema. In this lesson, we will write queries that will return information about the pet library schema.._
 
 Instructor: [00:00] Throughout this process, we've used the schema tab to look at all the available queries and types on this API. There's also a way that we can use the query language itself to look at, or introspect, the schema.
 
